@@ -335,6 +335,8 @@ void( entity attacker ) T_ReactToDamage =
 	if ( attacker == self ) return;
 	// ignore bosses because we can't kill them anyway
 	if ( attacker.type == "boss" ) return;	
+	// shootable chthon won't infight if told not to with spawnflag 2
+	if( self.type == "boss" && (attacker.classname != "player") && (self.spawnflags & 2)) return;
 	// don't get distracted instantly after switching targets
 	if (time < self.dmgtime) return;
 
