@@ -44,6 +44,7 @@ void() dog_bite =
 		return;
 
 	ai_charge(10);
+	if (self.deadflag) return;
 
 	if (!CanDamage (self.enemy, self.origin))
 		return;
